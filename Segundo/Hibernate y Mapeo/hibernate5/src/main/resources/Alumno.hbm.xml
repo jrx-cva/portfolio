@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="modelos">
+
+    <class name="modelos.Alumnos" table="alumnos"> <!--paquete y nombre de la clase -->
+        <!--ID -->
+        <id name="idAlumnos" type="int">
+            <column name="idAlumnos" />
+            <generator class="increment" />
+        </id>
+
+        <property name="nombre" type="java.lang.String">
+            <column name="nombre" />
+        </property>
+
+        <property name="apellidos" type="java.lang.String">
+            <column name="apellidos" />
+        </property>
+
+    </class>
+
+    <query name="mostrarAlumnos"> Select a from Alumnos a </query>
+
+</hibernate-mapping>

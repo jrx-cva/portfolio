@@ -1,0 +1,22 @@
+mysql> create view vista_alumnos as select * from alumnos where nota>=5;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> alter view vista_alumnos as select * from alumnos where codigoprofesor=1;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> drop view vista_alumnos;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create view vista_nota_alumnos_aprobados as select documento,alumnos.nombre as 'nombre_alumnos',alumnos.nota,profesores.nombre as 'nombre_profesores',codigoprofesor from alumnos,profesores where alumnos.codigoprofesor=profesores.codigo and alumnos.nota>=6;
+ERROR 1050 (42S01): Table 'vista_nota_alumnos_aprobados' already exists
+mysql> create view vista_nota_alumnos_aprobados as select documento,alumnos.nombre as 'nombre_alumnos',alumnos.nota,profesores.nombre as 'nombre_profesores',codigoprofesor from alumnos,profesores where alumnos.codigoprofesor=profesores.codigo and alumnos.nota>=6;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into vista_nota_alumnos_aprobados(documento,nombre_alumnos,nota,codigoprofesor) values('99999999','Pablo Rodriguez',10,1);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> update vista_nota_alumnos_aprobados set nota=10 where documento='30444444';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> Terminal close -- exit!

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="modelos.Proveedores" table="proveedores" schema="bd_neptuno">
+        <id name="id" column="id"/>
+        <property name="empresa" column="empresa"/>
+        <property name="contacto" column="contacto"/>
+        <property name="cargoContacto" column="cargo_contacto"/>
+        <property name="direccion" column="direccion"/>
+        <property name="ciudad" column="ciudad"/>
+        <property name="region" column="region"/>
+        <property name="cp" column="cp"/>
+        <property name="pais" column="pais"/>
+        <property name="telefono" column="telefono"/>
+        <property name="fax" column="fax"/>
+        <property name="web" column="web"/>
+        <set name="productosById" inverse="true">
+            <key>
+                <column name="proveedor_id" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="modelos.Productos"/>
+        </set>
+    </class>
+</hibernate-mapping>

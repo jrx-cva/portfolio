@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<empresas>
+  <empresa>
+    <nombre>Jaraxa</nombre>
+    <actividad>Software</actividad>
+    <ciudad>Málaga</ciudad>
+  </empresa>
+  <empresa>
+    <nombre>Burguer king</nombre>
+    <actividad>comida rápida</actividad>
+    <ciudad>Málaga</ciudad>
+  </empresa>
+  <empresa>
+    <nombre>Bricoseyma</nombre>
+    <actividad>Bricolaje</actividad>
+    <ciudad>Málaga</ciudad>
+  </empresa>
+</empresas>

@@ -1,0 +1,94 @@
+mysql> 
+mysql> /*1*/
+mysql> SELECT IF ((sexo="m"),"Lote de ib, ricos,","Fin de semana de hotel"),
+    -> COUNT(sexo) 
+    -> FROM empleados WHERE month(fechaNacimiento)=5 GROUP BY sexo;
++---------------------------------------------------------------+-------------+
+| IF ((sexo="m"),"Lote de ib, ricos,","Fin de semana de hotel") | count(sexo) |
++---------------------------------------------------------------+-------------+
+| Lote de ib, ricos,                                            |           2 |
+| Fin de semana de hotel                                        |           1 |
++---------------------------------------------------------------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> 
+mysql> /*2*/
+mysql> SELECT nombre,(year(current_date)-year(fechaingreso)), 
+    -> IF (year(current_date)-year(fechaingreso)%10=0,"Si","No") 
+    -> FROM empleados WHERE month(fechaingreso)=4;
++----------------+-----------------------------------------+-----------------------------------------------------------+
+| nombre         | (year(current_date)-year(fechaingreso)) | if (year(current_date)-year(fechaingreso)%10=0,"Si","No") |
++----------------+-----------------------------------------+-----------------------------------------------------------+
+| Hector Pereyra |                                      25 | No                                                        |
+| Susana Morales |                                      25 | No                                                        |
+| Oscar Torres   |                                      24 | No                                                        |
++----------------+-----------------------------------------+-----------------------------------------------------------+
+3 rows in set (0.00 sec)
+
+mysql> /*3*/
+mysql> SELECT nombre,sueldobasico,hijos,
+    -> IF(sueldobasico<=500, sueldobasico+300*hijos, sueldobasico+150*hijos)
+    -> FROM empleados WHERE hijos>0;
++--------------------+--------------+-------+----------------------------------------------------------------------+
+| nombre             | sueldobasico | hijos | if(sueldobasico<=500, sueldobasico+300*hijos,sueldobasico+150*hijos) |
++--------------------+--------------+-------+----------------------------------------------------------------------+
+| Hector Pereyra     |       510.00 |     1 |                                                               660.00 |
+| Ana Gomez          |       350.00 |     2 |                                                               950.00 |
+| Maria Laura Torres |       400.00 |     3 |                                                              1300.00 |
+| Susana Morales     |       650.00 |     2 |                                                               950.00 |
+| Luis LUque         |       700.00 |     3 |                                                              1150.00 |
+| Alberto Soto       |       420.00 |     1 |                                                               720.00 |
++--------------------+--------------+-------+----------------------------------------------------------------------+
+6 rows in set (0.00 sec)
+
+mysql> /*4*/
+mysql> SELECT nombre, IF(year(fechanacimiento)<=1970,"Empleados Antiguos.","") 
+    -> FROM empleados;
++--------------------+----------------------------------------------------------+
+| nombre             | if(year(fechanacimiento)<=1970,"Empleados Antiguos.","") |
++--------------------+----------------------------------------------------------+
+| Hector Pereyra     | Empleados Antiguos.                                      |
+| Ana Gomez          |                                                          |
+| Maria Laura Torres | Empleados Antiguos.                                      |
+| Juan Perez         | Empleados Antiguos.                                      |
+| Ofelia Garcia      |                                                          |
+| Susana Morales     |                                                          |
+| Luis LUque         |                                                          |
+| Alberto Soto       |                                                          |
+| Oscar Torres       |                                                          |
++--------------------+----------------------------------------------------------+
+9 rows in set (0.00 sec)
+
+mysql> 
+mysql> Terminal close -- exit!
+
+
+/*5*/
+CREATE TABLE empresa( 
+	nombre VARCHAR(20),
+	domicilio VARCHAR(60),
+	numeroEmpleado BLOB,
+	PRIMARY KEY(nombre)
+);
+
+/*EJEMPLOS DE USO DE CIFRADO Y DESCIFRADO*/
+ INSERT INTO cliente VALUES ('Juan Perez','Colon 123',aes_encrypt('55090','pass'));
+ SELECT nombre,aes_decrypt(numeroEmpleado,'pass') FROM empresa;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,118 @@
+//// -- LEVEL 1
+//// -- Tables and References
+
+// Creating tables
+Table user as U {
+  id_user int [pk, increment] // auto-increment
+  name varchar
+  username varchar
+  password password
+  id_userType int
+  id_file file
+}
+
+Table userType {
+  id_userType int [pk]
+  name varchar
+}
+
+Table userConnected {
+  id_user int
+  lastActiveDate datetime
+  id_chat int
+}
+
+Table message {
+  id_message int [pk]
+  id_user int
+  id_chat int
+  id_messageType int
+  text varchar
+  creationDate datetime
+  updateDate datetime
+  file varchar
+ }
+ 
+
+Table chat {
+  id_chat int [pk]
+  name varchar
+  id_chatType int
+  id_file file
+  admin int
+}
+
+Table relationUser{
+  id_userOwner int
+  id_userContact int
+  
+}
+
+Table chatUser {
+  id_chat int
+  id_user int
+  joinedDate datetime
+  lastActiveDate datetime
+}
+
+Table chatType {
+  id_chatType int [pk]
+  name varchar 
+}
+
+Table messageType {
+  id_messageType int [pk]
+  name varchar 
+}
+
+
+// Creating references
+// You can also define relaionship separately
+// > many-to-one; < one-to-many; - one-to-one
+// REFERENCIAS
+
+//Ref: mensajes.usuario > U.nombre
+Ref: chat.id_chat  > chatType.id_chatType
+Ref: chatUser.id_user  > user.id_user
+Ref: chatUser.id_chat  > chat.id_chat
+Ref: message.id_user  > user.id_user
+Ref: message.id_chat  > chatUser.id_chat
+Ref: message.id_messageType  > messageType.id_messageType
+Ref: user.id_userType  > userType.id_userType  
+Ref: user.id_user  > userConnected.id_user  
+Ref: chat.id_chat > userConnected.id_chat 
+Ref: chat.admin  > user.id_user
+Ref: relationUser.id_userContact >  user.id_user 
+Ref: relationUser.id_userOwner > user.id_user
+
+
+
+//----------------------------------------------//
+
+//// -- LEVEL 2
+//// -- Adding column settings
+//
+//Table pertenece {
+//  grupo int [ref: > grupos.id_grupo] // inline relationship (many-to-one)
+//  usuario int [ref: > U.id_usuario] // inline relationship (many-to-one)
+//  quantity int [default: 1] // default value
+//}
+
+
+//----------------------------------------------//
+
+//// -- Level 3 
+//// -- Enum, Indexes
+
+// Enum for 'products' table below
+//Enum products_status {
+//  out_of_stock
+//  in_stock
+//  running_low [note: 'less than 20'] // add column note
+//}
+
+
+
+
+
+

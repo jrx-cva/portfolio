@@ -1,0 +1,1 @@
+Yo no tengo ningún virus pero si hubiera tenido hubiera usado el comando: taskkil /PID(numerodelpid) /F

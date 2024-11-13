@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="modelos.Detalles" table="detalles" schema="bd_neptuno">
+        <composite-id mapped="true" class="modelos.DetallesPK">
+            <key-property name="pedidoId" column="pedido_id"/>
+            <key-property name="productoId" column="producto_id"/>
+        </composite-id>
+        <property name="precioUnidad" column="precio_unidad"/>
+        <property name="cantidad" column="cantidad"/>
+        <property name="descuento" column="descuento"/>
+        <property name="id" column="id"/>
+        <many-to-one name="pedidosByPedidoId" class="modelos.Pedidos">
+            <column name="pedido_id"/>
+        </many-to-one>
+        <many-to-one name="productosByProductoId" class="modelos.Productos">
+            <column name="producto_id"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

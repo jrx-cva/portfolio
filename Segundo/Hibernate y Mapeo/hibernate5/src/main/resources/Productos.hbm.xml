@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="modelos.Productos" table="productos" schema="bd_neptuno">
+        <id name="id" column="id"/>
+        <property name="producto" column="producto"/>
+        <property name="proveedorId" column="proveedor_id"/>
+        <property name="categoriaId" column="categoria_id"/>
+        <property name="cantidadPorUnidad" column="cantidad_por_unidad"/>
+        <property name="precioUnidad" column="precio_unidad"/>
+        <property name="unidadesExistencia" column="unidades_existencia"/>
+        <property name="unidadesPedido" column="unidades_pedido"/>
+        <property name="nivelNuevoPedido" column="nivel_nuevo_pedido"/>
+        <property name="suspendido" column="suspendido"/>
+        <property name="notas" column="notas"/>
+        <property name="iva" column="iva"/>
+        <many-to-one name="proveedoresByProveedorId" class="modelos.Proveedores">
+            <column name="proveedor_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="categoriasByCategoriaId" class="modelos.Categorias">
+            <column name="categoria_id" not-null="true"/>
+        </many-to-one>
+        <set name="detallesById" inverse="true">
+            <key>
+                <column name="producto_id"/>
+            </key>
+            <one-to-many not-found="ignore" class="modelos.Detalles"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,50 @@
+/*1. Elimina el procedimiento llamado "empleados_sueldo" si existe.*/
+DROP PROCEDURE IF EXISTS empleados_sueldo;
+
+/*2. Crea un procedimiento almacenado llamado "empleados_sueldo" que seleccione los nombres, apellidos y sueldos de los empleados.*/
+CREATE PROCEDURE empleados_sueldo() SELECT nombre, apellido, sueldo FROM empleados;
+
+/*3. Ejecuta el procedimiento creado anteriormente.*/
+CALL empleados_sueldo();
+
+/*4. Elimina el procedimiento llamado "empleados_hijos" si existe.*/
+DROP PROCEDURE IF EXISTS empleados_hijos;
+
+/*5. Crea un procedimiento almacenado llamado "empleados_hijos" que seleccione los nombres, apellidos y cantidad de hijos de los empleados con hijos.*/
+CREATE PROCEDURE empleados_hijos() SELECT nombre, apellidos, cantidadhijos FROM empleados WHERE cantidadhijos != 0;
+    
+/*6. Ejecuta el procedimiento creado anteriormente.*/
+CALL empleados_hijos();
+
+/*7. Actualiza la cantidad de hijos de algún empleado sin hijos y vuelve a ejecutar el procedimiento "empleados_hijos" para verificar que ahora si aparece en la lista.*/
+UPDATE empleados SET cantidadhijos = 2 WHERE cantidadhijos = 0;
+ 
+/*8. Elimina el procedimiento llamado "empleados_sueldo" si existe.*/
+DROP PROCEDURE IF EXISTS empleados_sueldo;
+
+/*9. Crea un procedimiento almacenado llamado "empleados_sueldo" que seleccione los nombres, apellidos y sueldos de los empleados que tengan un sueldo superior o igual al
+enviado como parámetro de entrada*/
+CREATE PROCEDURE empleados_sueldo(IN moneda INT) SELECT nombre, apellido, sueldo FROM empleados where sueldo >= moneda;
+    
+/*10. Ejecuta el procedimiento creado anteriormente con los valores 200 y 400.*/
+CALL empleados_sueldo(200);
+CALL empleados_sueldo(400);
+
+/*11. Crea un procedimiento almacenado llamado "empleados_actualizar_sueldo" que actualice los sueldos iguales al enviado como primer parámetro con el valor enviado
+como segundo parámetro*/
+CREATE PROCEDURE empleados_actualizar_sueldo(IN billete INT) SELECT nombre, apellido, sueldo FROM empleados where sueldo = billete;
+
+/*12. Ejecuta el procedimiento "empleados_actualizar_sueldo" y verifica si se ha ejecutado correctamente con los valores (300,500)*/
+CALL empleados_actualizar_sueldo(300);
+CALL empleados_actualizar_sueldo(500);
+
+/*13. Elimina el procedimiento llamado "seccion" si existe.*/
+DROP PROCEDURE IF EXISTS seccion;
+
+/*14. Crea un procedimiento almacenado llamado "seccion" al cual le enviamos el nombre de una sección y que nos retorne el promedio de sueldos de todos los empleados
+de esa sección y el valor mayor de sueldo (de esa sección)*/
+CREATE PROCEDURE seccion(IN nombre_seccion VARCHAR(30)) SELECT AVG(sueldo) AS promedio_de_sueldo,max(sueldo) AS sueldo_maximo FROM empleados WHERE seccion=nombre_seccion;
+
+/*15. Ejecuta el procedimiento creado anteriormente con los valores 'Contaduria' y 'Secretaria'.*/
+CALL seccion('Contaduria');
+CALL seccion('Secretaria');

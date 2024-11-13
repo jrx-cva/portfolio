@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/bd_neptuno</property> <!-- engancha la base de datos -->
+
+
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!-- update = modificar (conserva los datos anteriores)
+         create = crear (crea siempre, las elimina y las crea de nuevo)-->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- crear nueva tabla en la base de datos ¡MAPPING!-->
+        <!--<mapping class="modelos.Alumnos"/>-->
+
+        <!-- mapeo con XML -->
+        <mapping resource="Alumno.hbm.xml"/>
+        <mapping resource="Alumnos.hbm.xml"/>
+        <mapping resource="Categorias.hbm.xml"/>
+        <mapping resource="CategoriasNew.hbm.xml"/>
+        <mapping resource="Clavesanteriores.hbm.xml"/>
+        <mapping resource="Clientes.hbm.xml"/>
+        <mapping resource="Correoelectronico.hbm.xml"/>
+        <mapping resource="Detalles.hbm.xml"/>
+        <mapping resource="Empleados.hbm.xml"/>
+        <mapping resource="Envios.hbm.xml"/>
+        <mapping resource="Matriculas.hbm.xml"/>
+        <mapping resource="Pedidos.hbm.xml"/>
+        <mapping resource="Productos.hbm.xml"/>
+        <mapping resource="ProductosNew.hbm.xml"/>
+        <mapping resource="Profesor.hbm.xml"/>
+        <mapping resource="Proveedores.hbm.xml"/>
+        <mapping resource="ProveedoresNew.hbm.xml"/>
+        <mapping resource="Superusuarios.hbm.xml"/>
+        <mapping resource="Usuarios.hbm.xml"/>
+        <mapping resource="Importes.hbm.xml"/>
+        <mapping resource="Totales.hbm.xml"/>
+        <mapping resource="TotalesMensuales.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,3 @@
+caminar;5.0
+andar;8.0
+nadar;13.0

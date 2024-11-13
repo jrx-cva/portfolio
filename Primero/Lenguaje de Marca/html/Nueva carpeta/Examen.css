@@ -1,0 +1,109 @@
+body {
+    margin: auto;
+    padding: 0;
+    width: 1000px;
+    font-size: 20px;
+}
+
+header {
+    height: 100px;
+    width: 100%;
+    background-color: darkblue;
+    float: left;
+    text-align: center;
+    color: white;
+}
+
+.divcabecera {
+    float: left;
+    width: 150;
+}
+
+#cabecera {
+    float: left;
+}
+
+.divh1 {
+    float: left;
+    width: 850;
+}
+
+h1 {
+    font-size: 45px;
+}
+
+
+nav {
+    height: 600px;
+    width: 25%;
+    background-color: blue;
+    float: left;
+    text-align: center;
+
+}
+
+aside {
+    height: 600px;
+    width: 25%;
+    background-color: cadetblue;
+    float: right;
+    text-align: center;
+}
+
+#titulomain {
+    color: white;
+}
+
+
+
+
+
+main {
+    float: left;
+    height: 600px;
+    width: 50%;
+}
+
+#contenido1_main {
+    float: left;
+    width: 33.3%;
+    height: 100px;
+    background-color: coral;
+    color: black;
+}
+
+#contenido2_main {
+    float: left;
+    width: 33.3%;
+    height: 100px;
+    background-color: lightgoldenrodyellow;
+    color: black;
+}
+
+#contenido3_main {
+    float: left;
+    width: 33.3%;
+    height: 100px;
+    background-color: mediumpurple;
+    color: black;
+}
+
+#contenido4_main {
+    float: left;
+    width: 100%;
+    height: 500px;
+    background-color: lightpink;
+    color: black;
+    overflow: auto;
+    clear: left;
+}
+
+
+
+footer {
+    height: 80px;
+    width: 100%;
+    background-color: skyblue;
+    clear: both;
+    text-align: center;
+}

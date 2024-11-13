@@ -1,0 +1,81 @@
+mysql>/*1*/
+mysql> CREATE VIEW vista_inscritos AS SELECT * FROM inscritos WHERE deporte="natacion";
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> /*2*/
+mysql> ALTER VIEW vista_inscritos AS SELECT * FROM inscritos WHERE cuotas!=NULL;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> /*3*/
+mysql> DROP VIEW vista_inscritos;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> /*4*/
+mysql>  SELECT * FROM socios WHERE EXISTS(SELECT * FROM inscritos WHERE socios.numero=inscritos.numerosocio AND deporte IN ("natacion","tenis")); 
++--------+-----------------+--------------+
+| numero | nombre          | domicilio    |
++--------+-----------------+--------------+
+|      1 | Alberto Paredes | Colon 11     |
+|      2 | Carlos Conte    | Sarmiento 55 |
+|      3 | Fabian Fuentes  | Caseros 87   |
++--------+-----------------+--------------+
+3 rows in set (0.00 sec)
+
+mysql> /*5*/
+mysql>  SELECT * FROM socios WHERE NOT EXISTS(SELECT * FROM inscritos WHERE socios.numero=inscritos.numerosocio AND inscritos.deporte='natacion'); 
++--------+--------------+-----------+
+| numero | nombre       | domicilio |
++--------+--------------+-----------+
+|      4 | Hector Lopez | Sucre 34  |
+|      5 | Ana Martin   | Mayor 24  |
++--------+--------------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> /*6*/
+mysql> SELECT * FROM socios WHERE EXISTS(SELECT * FROM inscritos WHERE socios.numero=inscritos.numerosocio AND inscritos.cuotas=10);  
++--------+--------------+-----------+
+| numero | nombre       | domicilio |
++--------+--------------+-----------+
+|      4 | Hector Lopez | Sucre 34  |
++--------+--------------+-----------+
+1 row in set (0.00 sec)
+
+mysql>/*7*/
+mysql> SELECT * FROM socios WHERE EXISTS(SELECT * FROM inscritos WHERE socios.numero=inscritos.numerosocio AND inscritos.cuotas>=5); 
++--------+----------------+--------------+
+| numero | nombre         | domicilio    |
++--------+----------------+--------------+
+|      2 | Carlos Conte   | Sarmiento 55 |
+|      3 | Fabian Fuentes | Caseros 87   |
+|      4 | Hector Lopez   | Sucre 34     |
++--------+----------------+--------------+
+3 rows in set (0.00 sec)
+
+mysql>/*8*/
+mysql> SELECT * FROM socios WHERE EXISTS(SELECT * FROM inscritos WHERE socios.numero=inscritos.numerosocio AND inscritos.deporte IN ("natacion","tenis","basquet","futbol")); 
++--------+-----------------+--------------+
+| numero | nombre          | domicilio    |
++--------+-----------------+--------------+
+|      1 | Alberto Paredes | Colon 11     |
+|      2 | Carlos Conte    | Sarmiento 55 |
+|      3 | Fabian Fuentes  | Caseros 87   |
+|      4 | Hector Lopez    | Sucre 34     |
++--------+-----------------+--------------+
+4 rows in set (0.00 sec)
+
+mysql>/*9*/
+mysql> SELECT * FROM socios WHERE NOT EXISTS(SELECT * FROM inscritos WHERE socios.numero=inscritos.numerosocio AND inscritos.deporte IN ("natacion","tenis","basquet","futbol")); 
++--------+------------+-----------+
+| numero | nombre     | domicilio |
++--------+------------+-----------+
+|      5 | Ana Martin | Mayor 24  |
++--------+------------+-----------+
+1 row in set (0.00 sec)
+
+mysql>/*10*/
+mysql>  UPDATE inscritos SET deporte ="baloncesto" WHERE inscritos.deporte = "basquet"; 
+Query OK, 4 rows affected (0.01 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> 
+mysql> Terminal close -- exit!

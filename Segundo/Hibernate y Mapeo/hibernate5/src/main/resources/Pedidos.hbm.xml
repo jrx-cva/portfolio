@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="modelos.Pedidos" table="pedidos" schema="bd_neptuno">
+        <id name="id" column="id"/>
+        <property name="clienteId" column="cliente_id"/>
+        <property name="empleadoId" column="empleado_id"/>
+        <property name="fechaPedido" column="fecha_pedido"/>
+        <property name="fechaEntrega" column="fecha_entrega"/>
+        <property name="fechaEnvio" column="fecha_envio"/>
+        <property name="envioId" column="envio_id"/>
+        <property name="cargo" column="cargo"/>
+        <property name="destinatario" column="destinatario"/>
+        <property name="direccionDestinatario" column="direccion_destinatario"/>
+        <property name="ciudadDestinatario" column="ciudad_destinatario"/>
+        <property name="regionDestinatario" column="region_destinatario"/>
+        <property name="cpDestinatario" column="cp_destinatario"/>
+        <property name="paisDestinatario" column="pais_destinatario"/>
+        <many-to-one name="clientesByClienteId" class="modelos.Clientes">
+            <column name="cliente_id"/>
+        </many-to-one>
+        <many-to-one name="empleadosByEmpleadoId" class="modelos.Empleados">
+            <column name="empleado_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="enviosByEnvioId" class="modelos.Envios">
+            <column name="envio_id" not-null="true"/>
+        </many-to-one>
+        <set name="detallesById" inverse="true">
+            <key>
+                <column name="pedido_id"/>
+            </key>
+            <one-to-many not-found="ignore" class="modelos.Detalles"/>
+        </set>
+    </class>
+</hibernate-mapping>

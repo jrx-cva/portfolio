@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="modelos.Envios" table="envios" schema="bd_neptuno">
+        <id name="id" column="id"/>
+        <property name="empresa" column="empresa"/>
+        <property name="telefono" column="telefono"/>
+        <set name="pedidosById" inverse="true">
+            <key>
+                <column name="envio_id" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="modelos.Pedidos"/>
+        </set>
+    </class>
+</hibernate-mapping>

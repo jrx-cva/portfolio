@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<coches>
+  <coche>
+    <marca>Seat</marca>
+    <modelo>Ibiza</modelo>
+    <potencia>80 a 115 CV</potencia>
+  </coche>
+  <coche>
+    <marca>Honda</marca>
+    <modelo>Civic</modelo>
+    <potencia>129 a 320 CV</potencia>
+  </coche>
+  <coche>
+    <marca>Renault</marca>
+    <modelo>Megane</modelo>
+    <potencia>95 a 300 CV</potencia>
+  </coche>
+</coches>

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="modelos.Empleados" table="empleados" schema="bd_neptuno">
+        <id name="id" column="id"/>
+        <property name="apellidos" column="apellidos"/>
+        <property name="nombre" column="nombre"/>
+        <property name="cargo" column="cargo"/>
+        <property name="tratamiento" column="tratamiento"/>
+        <property name="fechaNacimiento" column="fecha_nacimiento"/>
+        <property name="fechaContratacion" column="fecha_contratacion"/>
+        <property name="direccion" column="direccion"/>
+        <property name="ciudad" column="ciudad"/>
+        <property name="region" column="region"/>
+        <property name="cp" column="cp"/>
+        <property name="pais" column="pais"/>
+        <property name="telefonoDomicilio" column="telefono_domicilio"/>
+        <property name="extension" column="extension"/>
+        <property name="notas" column="notas"/>
+        <property name="jefeId" column="jefe_id"/>
+        <many-to-one name="empleadosByJefeId" class="modelos.Empleados">
+            <column name="jefe_id" not-null="true"/>
+        </many-to-one>
+        <set name="empleadosById" inverse="true">
+            <key>
+                <column name="jefe_id" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="modelos.Empleados"/>
+        </set>
+        <set name="pedidosById" inverse="true">
+            <key>
+                <column name="empleado_id" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="modelos.Pedidos"/>
+        </set>
+    </class>
+</hibernate-mapping>

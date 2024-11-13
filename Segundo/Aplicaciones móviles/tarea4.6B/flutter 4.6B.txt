@@ -1,0 +1,78 @@
+MAIN.dart
+void main() {
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        title: 'ejemplo de iconos',
+        home: Scaffold(
+          appBar: AppBar(
+            title: Center(
+              child: Text('Ejemplo de inserción de iconos'),
+          ),
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children:  <Widget>[
+                Icon(
+                  Icons.favorite,
+                  color: Colors.amberAccent,
+                  size: 50.0,
+                ),
+                Icon(
+                  Icons.audiotrack,
+                  color: Colors.deepPurple,
+                  size: 50.0,
+                ),
+                Icon(
+                  Icons.beach_access,
+                  color: Colors.greenAccent,
+                  size: 50.0,
+                ),
+
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children:  <Widget>[
+                Icon(
+                  Icons.fingerprint,
+                  color: Colors.redAccent,
+                  size: 100.0,
+                ),
+                Icon(
+                  Icons.timeline_outlined,
+                  color: Colors.green,
+                  size: 100.0,
+                ),
+                Icon(
+                  Icons.pan_tool,
+                  color: Colors.blue,
+                  size: 100.0,
+                ),
+
+              ],
+            )
+          ],
+        )
+
+        )
+    );
+  }
+}
+
+
+
+
+
+
+
+PUBSPEC.yaml
+
+flutter:
+  uses-material-design: true

@@ -1,0 +1,276 @@
+body {
+  background-color:#6A588A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: balsamiqSans;
+  }
+
+@font-face {
+  font-family:balsamiqSans;
+  src: url(BalsamiqSans.ttf);
+}
+  
+                                  /***INDEX.HTML****/
+
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 150px;
+  margin-bottom: 30px;
+  width: 283px;
+  height: 247px;
+}
+
+/*POSICION DE LOS DOS BOTONES*/
+div#botonesRI {
+  margin: auto;
+  margin-top: 50px;
+  width: 960px; height: 800px;
+  /** background-color:turquoise;   BORAR ESTO ACRDARSE DE BORRARLO*/
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+/*BOTON REGISTRARSE*/
+div#buttomRegistrarse {
+  padding-top: 25px;
+  display: block;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 479px; height: 50px;
+  border: 1px solid #E93232;
+  background-color: #E93232;
+  border-radius: .5em;
+  cursor: pointer;
+  transition: background-color 0.4s;
+  /*letras:*/
+  text-align: center;
+  color: whitesmoke;
+  text-align: center;
+  font-size: 18px;     
+}
+
+/**accion de pulsar boton registrarse*/
+div#buttomRegistrarse:hover {
+  background-color: #15101c;
+  border: 1px solid #15101c;
+}
+
+/*BOTON INICIAR SESION*/
+div#buttomIniciarSesion {
+  padding-top: 25px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 479px; height: 50px;
+  border: 1px solid #E93232;
+  background-color: #E93232;
+  border-radius: .5em;
+  cursor: pointer;
+  transition: background-color 0.4s;
+  /*letras:*/
+  color: whitesmoke;
+  text-align: center;
+  font-size: 18px;  
+}
+
+/**accion de pulsar boton iniciar sesion*/
+div#buttomIniciarSesion:hover {
+  background-color: #15101c;
+  border: 1px solid #15101c;
+}
+
+
+
+
+                                  /***REGISTRARSE.HTML****/
+/*PAGINA REGISTRARSE */
+div#contenedorRegistrarse {
+  margin: auto;
+  margin-top: 180px;
+  width: 538px; height: 555px;
+  background-color:white;  
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+#imagen2{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 70px;
+  margin-bottom: 30px;
+  width: 172px;
+  height: 142px;
+}
+
+/**CONTENEDOR FORMULARIO*/
+#form-register {
+  width: 400px;
+  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  padding-left: 80px;
+  /**background: tomato; BORRAR ESTO*/
+}
+
+#registrartel {
+  width: 50%;
+  padding: 5px;
+  border-radius: 4px;
+  margin-bottom: 3px;
+  border: 1px solid #15101c;
+  font-family: balsamiqSans;
+}
+
+#registrarapodo {
+  width: 50%;
+  padding: 5px;
+  border-radius: 4px;
+  margin-bottom: 3px;
+  margin-left: 98px;
+  border: 1px solid #15101c;
+  font-family: balsamiqSans;
+}
+
+#registrarsusu {
+  width: 50%;
+  padding: 5px;
+  border-radius: 4px;
+  margin-bottom: 3px;
+  margin-left: 5px;
+  border: 1px solid #15101c;
+  font-family: balsamiqSans;
+}
+
+#registrarcon {
+  width: 50%;
+  padding: 5px;
+  border-radius: 4px;
+  margin-bottom: 3px;
+  margin-left: 60px;
+  border: 1px solid #15101c;
+  font-family: balsamiqSans;
+}
+
+#botones {
+  display: flex;
+  width: 400px;
+  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4px;
+  /**background: tomato; BORRAR ESTO*/
+}
+
+#botonsRegister {
+  margin-top: 0px;
+  margin-bottom: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 172px; height: 37px;
+  border: 1px solid #E93232;
+  background-color: #E93232;
+  border-radius: .2em;
+  cursor: pointer;
+  transition: background-color 0.4s;
+  
+  /*letras:*/
+  color: whitesmoke;
+  text-align: center;
+  font-size: 15px;  
+  font-family: balsamiqSans;
+}
+
+#botonsRegister:hover {
+  border: 1px solid #E93232;
+  background-color: whitesmoke;
+  color: #E93232;
+}
+
+#butonCancelar {
+  margin-top: 4px;
+  margin-bottom: 8px;
+  margin-left: 28px;
+  margin-right: 100px;
+  
+  width: 100px; height: 30px;
+  border: 1px solid #15101c;
+  background-color: #15101c;
+  border-radius: .2em;
+  cursor: pointer;
+  transition: background-color 0.4s;
+
+  /*letras:*/
+  color: whitesmoke;
+  text-align: center;
+  font-size: 15px;  
+  font-family: balsamiqSans;
+}
+
+#butonCancelar:hover{
+  border: 1px solid #15101c;
+  background-color: whitesmoke;
+  color: #15101c;
+}
+
+
+                                  /***INICIAR_SESION.HTML****/
+
+
+#comprobarTel {
+  width: 50%;
+  padding: 5px;
+  border-radius: 4px;
+  margin-bottom: 3px;
+  border: 1px solid #15101c;
+  font-family: balsamiqSans;
+}
+
+#comprobarCon {
+  width: 50%;
+  padding: 5px;
+  border-radius: 4px;
+  margin-bottom: 3px;
+  margin-left: 60px;
+  border: 1px solid #15101c;
+  font-family: balsamiqSans;
+}
+
+#botonIniciarSesion {
+  margin-top: 0px;
+  margin-bottom: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 172px; height: 37px;
+  border: 1px solid #E93232;
+  background-color: #E93232;
+  border-radius: .2em;
+  cursor: pointer;
+  transition: background-color 0.4s;
+  
+  /*letras:*/
+  color: whitesmoke;
+  text-align: center;
+  font-size: 15px;  
+  font-family: balsamiqSans;
+}
+
+#botonIniciarSesion:hover {
+  border: 1px solid #E93232;
+  background-color: whitesmoke;
+  color: #E93232;
+}
+
+
+
+
